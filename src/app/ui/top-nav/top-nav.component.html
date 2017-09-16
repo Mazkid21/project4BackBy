@@ -1,0 +1,28 @@
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-item" id="logo" routerLink="/">
+      BackBy
+    </a>
+  </div>
+  <span class="nav-toggle" (click)="toggleCollapse()" [ngClass]="{'is-active': show}">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+  <!-- This "nav-menu" is hidden on mobile -->
+  <!-- Add the modifier "is-active" to display it on mobile -->
+  <div class="nav-right nav-menu" [ngClass]="{'is-active': show}">
+    <a class="nav-item" routerLink="/login">
+      Login
+    </a>
+    <a class="nav-item" routerLink="/items">
+      Items
+    </a>
+    <!-- <a class="nav-item" routerLink="/uploads">
+      Uploads
+    </a> -->
+
+   
+  </div>
+</nav>

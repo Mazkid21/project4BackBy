@@ -1,0 +1,30 @@
+
+<h1> {{ auth.currentUserDisplayName }} </h1>
+
+<h3 [ngClass]="{ 'strike-out': !item.active }">
+  {{ item.title || 'missing title' }}
+</h3>
+
+	<h5 [ngClass]="{ 'strike-out': !item.active }">Location</h5>
+	<p [ngClass]="{ 'strike-out': !item.active }"> {{item.location || 'missing location'}}</p>
+	<hr>
+	<h5 [ngClass]="{ 'strike-out': !item.active }">Expected Return</h5>
+	<p [ngClass]="{ 'strike-out': !item.active }"> {{item.return || 'missing return'}}</p>
+	<hr>
+	<h5 *ngIf='item.note != null' [ngClass]="{ 'strike-out': !item.active }">Notes</h5>
+	<p *ngIf='item.note != null' [ngClass]="{ 'strike-out': !item.active }"> {{item.note || ''}}</p>
+
+
+<div class="card-content">
+
+  Trip Active?: {{ item.active }}<br>
+  {{ item.timeStamp | date: 'medium' }}
+
+</div>
+
+<div class="card-footer">
+  <span class="button is-small is-info card-footer-item" (click)='updateTimeStamp()'>Update Timestamp</span>
+  <span class="button is-small is-success card-footer-item" *ngIf='item.active' (click)='updateActive(false)'>Mark Complete</span>
+  <span class="button is-small is-warning card-footer-item" *ngIf='!item.active' (click)='updateActive(true)'>Mark Incomplete</span>
+  <span class="button is-small is-danger card-footer-item" (click)='deleteItem()'>Delete</span>
+</div>

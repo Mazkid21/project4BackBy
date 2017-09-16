@@ -1,0 +1,39 @@
+<h3>New Trip Form</h3>
+
+    <label class="label">Name: </label>
+
+    <input placeholder="Trip Name" class="input"
+    [(ngModel)]="item.title"
+    required minlength="2" maxlength="23"
+    #title='ngModel' autofocus>
+
+    <input placeholder="location" class="input"
+    [(ngModel)]="item.location"
+    required minlength="2" maxlength="23"
+    #location='ngModel' autofocus>
+
+     <input placeholder="expected return time" class="input"
+    [(ngModel)]="item.return"
+    required minlength="2" maxlength="23"
+    #return='ngModel' autofocus>
+
+      <input placeholder="Notes" class="input"
+    [(ngModel)]="item.note"
+     maxlength="140"
+    #note='ngModel' autofocus>
+
+    <div *ngIf="title.dirty">
+      <span *ngIf='title.errors; then errors else valid'>template renders here...</span>
+    </div>
+
+
+    <button class="button is-primary" (click)='createItem()' [disabled]="!title.valid">Create</button>
+
+
+<ng-template #valid>
+  <p class="help is-success">looks good!</p>
+</ng-template>
+
+<ng-template #errors>
+  <p class="help is-danger">form contains errors!</p>
+</ng-template>
