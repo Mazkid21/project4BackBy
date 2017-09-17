@@ -24,7 +24,7 @@ export class ItemService {
   // You will usually call this from OnInit in a component
   getItemsList(query = {}): FirebaseListObservable<Item[]> {
     if (!this.userId) return;
-    this.items = this.db.list(`items/${this.userId}`);
+    this.items = this.db.list(`items/`);
   
     return this.items
   }
@@ -38,6 +38,7 @@ export class ItemService {
 
   // Create a bramd new item
   createItem(item: Item): void {
+    item.userId = this.userId
     this.items.push(item)
       .catch(error => this.handleError(error))
   }
