@@ -4,6 +4,7 @@ export class Item {
   location: string;
   return: string;
   note: string;
+  userId: string;
   active = true;
   timeStamp: Date = new Date();
 }
