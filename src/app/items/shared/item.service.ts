@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Item } from './item';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 export class ItemService {
@@ -9,17 +10,22 @@ export class ItemService {
   private basePath = '/items';
 
   items: FirebaseListObservable<Item[]> = null; //  list of objects
+  userId: string;
   item: FirebaseObjectObservable<Item> = null; //   single object
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { 
+    this.afAuth.authState.subscribe(user => {
+      if(user) this.userId = user.uid
+    })
+  }
 
 
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getItemsList(query = {}): FirebaseListObservable<Item[]> {
-    this.items = this.db.list('/items', {
-      query: query
-    });
+    if (!this.userId) return;
+    this.items = this.db.list(`items/${this.userId}`);
+  
     return this.items
   }
 

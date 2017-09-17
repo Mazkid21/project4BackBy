@@ -39,28 +39,8 @@ export class AuthService {
     return this.authenticated ? this.authState.uid : '';
   }
 
-  // Anonymous User
-  get currentUserAnonymous(): boolean {
-    return this.authenticated ? this.authState.isAnonymous : false
-  }
-
-  // Returns current user display name or Guest
-  get currentUserDisplayName(): string {
-    if (!this.authState) {
-      return 'Guest'
-    } else if (this.currentUserAnonymous) {
-      return 'Anonymous'
-    } else {
-      return this.authState['displayName'] || 'User without a Name'
-    }
-  }
 
   //// Social Auth ////
-
-  githubLogin() {
-    const provider = new firebase.auth.GithubAuthProvider()
-    return this.socialSignIn(provider);
-  }
 
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider()
@@ -72,27 +52,12 @@ export class AuthService {
     return this.socialSignIn(provider);
   }
 
-  twitterLogin() {
-    const provider = new firebase.auth.TwitterAuthProvider()
-    return this.socialSignIn(provider);
-  }
 
   private socialSignIn(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
+    return this.afAuth.auth.signInWithRedirect(provider)
       .then((credential) => {
         this.authState = credential.user
         this.updateUserData()
-      })
-      .catch(error => console.log(error));
-  }
-
-
-  //// Anonymous Auth ////
-
-  anonymousLogin() {
-    return this.afAuth.auth.signInAnonymously()
-      .then((user) => {
-        this.authState = user
       })
       .catch(error => console.log(error));
   }
