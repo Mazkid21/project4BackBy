@@ -1,7 +1,7 @@
 # Project4BackBy
 
-![alt text](http://assets/WIREFRAME.png) 
-![alt text](http://assets/scrrenShot.png)
+![alt text](assets/WIREFRAME.png) 
+![alt text](assets/scrrenShot.png)
 
 ## Tech
 
