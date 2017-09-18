@@ -7,11 +7,15 @@ import { AuthService } from '../../core/auth.service';
   styleUrls: ['./users-page.component.css']
 })
 export class UsersPageComponent implements OnInit {
-
+users;
 
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
+  	
+  	this.users = this.auth.getUsers()
+
+  	console.log(this.users);
   }
 
  

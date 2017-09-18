@@ -99,6 +99,12 @@ export class AuthService {
     this.router.navigate(['/'])
   }
 
+  /// Get all users ////
+
+  getUsers() {
+    return this.db.list('/users');
+  }
+
 
   //// Helpers ////
 

@@ -38,6 +38,7 @@ import { ReadmePageComponent } from '../readme-page/readme-page.component';
   exports: [
     TopNavComponent,
     UserProfileComponent,
+    UsersPageComponent
   ]
 })
 export class UiModule { }
