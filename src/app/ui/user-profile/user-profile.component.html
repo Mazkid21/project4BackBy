@@ -2,7 +2,7 @@
     <!-- User logged in -->
     <div class="box" *ngIf="auth.currentUser">
         <h3>Howdy, {{ auth.currentUserDisplayName }}</h3>
-        <img class="card-img-top" [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
+        <img class="card-img-top" [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/abott@adorable.png'" width=50px>
         <p class="text-truncate">UID: {{ auth.currentUserId }}</p>
         <button class="button" (click)="logout()">Logout</button>
         <button class="button" routerLink="/items">Trips</button>
@@ -16,3 +16,4 @@
         <button class="button" routerLink="/login">Login</button>
 
     </div>
+
