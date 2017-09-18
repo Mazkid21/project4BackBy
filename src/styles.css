@@ -2,4 +2,8 @@
 
 body {
 	background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+	
+	font-family: 'Slabo 27px', serif;
+
+	background: linear-gradient(45deg, rgba(107,107,107,1) 0%, rgba(127,127,127,1) 41%, rgba(128,128,128,1) 43%, rgba(153,153,153,1) 76%);
 }
