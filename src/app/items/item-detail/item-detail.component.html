@@ -1,7 +1,7 @@
 <div class="card">
 <div class='card-content'>
 <!-- <h1> {{ auth.currentUserDisplayName }} </h1> -->
-
+<h3> Trip posted by UID: {{item.userId}} </h3>
 <h3  [ngClass]="{ 'strike-out': !item.active }">
   {{ item.title || 'missing title' }}
 </h3>

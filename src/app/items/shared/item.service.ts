@@ -24,7 +24,7 @@ export class ItemService {
   // You will usually call this from OnInit in a component
   getItemsList(query = {}): FirebaseListObservable<Item[]> {
     if (!this.userId) return;
-    this.items = this.db.list(`items/`);
+    this.items = this.db.list(`items/`); // Delete for trips accesable for all users ${this.userId}
   
     return this.items
   }
@@ -38,11 +38,10 @@ export class ItemService {
 
   // Create a bramd new item
   createItem(item: Item): void {
-    item.userId = this.userId
+    item.userId = this.userId  // Delete for trips accesable for all users
     this.items.push(item)
       .catch(error => this.handleError(error))
   }
-
 
   // Update an exisiting item
   updateItem(key: string, value: any): void {
