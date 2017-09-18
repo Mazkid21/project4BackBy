@@ -3,6 +3,10 @@
 ![alt text](src/assets/WIREFRAME.png) 
 ![alt text](src/assets/scrrenShot.png)
 
+## Hosting 
+
+https://backbyfire.firebaseapp.com/
+
 ## Tech
 
 Angular 4 - Front end frame work,
