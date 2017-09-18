@@ -1,6 +1,5 @@
-<h3>New Trip Form</h3>
+<h1>New Trip Form</h1>
 
-    <label class="label">Name: </label>
 
     <input placeholder="Trip Name" class="input"
     [(ngModel)]="item.title"
@@ -27,13 +26,13 @@
     </div>
 
 
-    <button class="button  is-success" (click)='createItem()' [disabled]="!return.valid">Create</button>
+    <button class="button" id="create" (click)='createItem()' [disabled]="!return.valid">Create</button>
 
 
 <ng-template #valid>
-  <p class="help is-success">looks good!</p>
+  <h4 class="help is-success">looks good!</h4>
 </ng-template>
 
 <ng-template #errors>
-  <p class="help is-danger">form contains errors!</p>
+  <h4 class="help is-danger">form contains errors!</h4>
 </ng-template>

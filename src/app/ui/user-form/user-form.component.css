@@ -1,0 +1,30 @@
+h3 {
+	color: white;
+	background-color: black;
+}
+
+p {
+	color: white;
+}
+
+label {
+	color: white;
+}
+
+.help {
+	background-color: black;
+}
+
+.help.is-info {
+	color: red;
+}
+
+.notification.is-danger {
+	color: red;
+	background-color: black;
+}
+
+.notification.is-success {
+	color: #23d160;
+	background-color: black;
+}
