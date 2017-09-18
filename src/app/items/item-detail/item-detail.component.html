@@ -1,10 +1,12 @@
-
-<h1> {{ auth.currentUserDisplayName }} </h1>
-
-<h3 [ngClass]="{ 'strike-out': !item.active }">
+<div class="card">
+<div class='card-content'>
+<!-- <h1> {{ auth.currentUserDisplayName }} </h1> -->
+<h3> Trip posted by UID: {{item.userId}} </h3>
+<h3  [ngClass]="{ 'strike-out': !item.active }">
   {{ item.title || 'missing title' }}
 </h3>
-
+<div class="card-content">
+	<div class="content">
 	<h5 [ngClass]="{ 'strike-out': !item.active }">Location</h5>
 	<p [ngClass]="{ 'strike-out': !item.active }"> {{item.location || 'missing location'}}</p>
 	<hr>
@@ -13,7 +15,8 @@
 	<hr>
 	<h5 *ngIf='item.note != null' [ngClass]="{ 'strike-out': !item.active }">Notes</h5>
 	<p *ngIf='item.note != null' [ngClass]="{ 'strike-out': !item.active }"> {{item.note || ''}}</p>
-
+	</div>
+</div>
 
 <div class="card-content">
 
@@ -28,3 +31,6 @@
   <span class="button is-small is-warning card-footer-item" *ngIf='!item.active' (click)='updateActive(true); updateTimeStamp()'>Mark Incomplete</span>
   <span class="button is-small is-danger card-footer-item" (click)='deleteItem()'>Delete</span>
 </div>
+</div>
+</div>
+
