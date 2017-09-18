@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavService } from './nav.service';
 
+import { UsersPageComponent } from '../users-page/users-page.component';
 import { UserLoginComponent } from '../user-login/user-login.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { UserFormComponent } from '../user-form/user-form.component';
@@ -27,6 +28,7 @@ import { ReadmePageComponent } from '../readme-page/readme-page.component';
     BrowserAnimationsModule
   ],
   declarations: [
+    UsersPageComponent,
     UserLoginComponent,
     UserProfileComponent,
     TopNavComponent,
@@ -36,6 +38,7 @@ import { ReadmePageComponent } from '../readme-page/readme-page.component';
   exports: [
     TopNavComponent,
     UserProfileComponent,
+    UsersPageComponent
   ]
 })
 export class UiModule { }
